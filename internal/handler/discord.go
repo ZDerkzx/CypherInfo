@@ -145,7 +145,11 @@ func planEmbed(p models.Plan, tier string, color int) *discordgo.MessageEmbed {
 func (h *Handler) reply(s *discordgo.Session, i *discordgo.InteractionCreate, content string, embeds []*discordgo.MessageEmbed) {
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
-		Data: &discordgo.InteractionResponseData{Content: content, Embeds: embeds},
+		Data: &discordgo.InteractionResponseData{
+			Content: content,
+			Embeds:  embeds,
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
 	})
 	if err != nil {
 		h.log.Error("Error in answering.", "err", err)
