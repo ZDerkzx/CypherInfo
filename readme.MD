@@ -1,0 +1,1 @@
+codigo de mrda vibecodificado con claudio mayormente pq ando aprendiendo discordgo.
